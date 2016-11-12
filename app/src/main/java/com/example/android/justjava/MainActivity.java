@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+
 /**
  * This app displays an order form to order coffee.
  */
@@ -33,8 +35,18 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(numberOfCoffees);
-        displayPrice(numberOfCoffees * 5);
+        String priceMessage= "Free";
+        displayMessage(priceMessage);
+        //display(numberOfCoffees);
+        //displayPrice(numberOfCoffees * 5);
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 
     /**
